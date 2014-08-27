@@ -30,8 +30,8 @@
         <div class="downloads">
           <span>Downloads:</span>
           <ul>
-            <li><a href="https://github.com/vroddon/odrlapi/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/vroddon/odrlapi/tarball/master" class="button">TAR</a></li>
+            <li><a href="https://github.com/vroddon/odrlapi/releases/download/v1.0/odrlapi-1.0.jar" class="button">ZIP</a></li>
+            <li><a href="https://github.com/vroddon/odrlapi/zipball/master" class="button">SRC</a></li>
           </ul>
         </div>
       </div><!-- end banner -->
@@ -61,9 +61,10 @@ ODRL2.0 Core Model is abstract, i.e., serialization independent. The examples in
 </center>
 
 <h4>A first example</h4>
-A policy may represent the following statement: <i>"The asset 9898 can be read and written"</i>. 
+<p>A policy may represent the following statement: <i>"The asset 9898 can be read and written"</i>. </p>
+The following example is taken from the official <a href="http://www.w3.org/ns/odrl/2/#sec-example-1">ODRL example 1</a>
 <pre>
-<http://example.com/policy:0099>
+http://example.com/policy:0099
         a                 odrl:Policy , odrl:Set ;
         odrl:permission   [ a            odrl:Permission ;
                             odrl:action  odrl:write , odrl:read ;
@@ -84,8 +85,19 @@ This may have been defined in Java with the
         System.out.println(ODRLRDF.getRDF(policy, Lang.TTL));
 
 </pre>
+
 Note that the last line converts objects in the ODRL2.0 Simple API Model to the RDF (Turtle by default) serialization.
-<center><img src = "./images/oeg100.png"/></center>
+
+
+<h4>Full documentation</h4>
+
+<center><big><b><a href="htmldoc/html/index.html">Full documentation here</a></b></big></center>
+
+<h4>Authorship</h4>
+
+<center><a href="http://www.oeg-upm.net"><img src = "./images/oeg100.png"/></a></center>
+
+
 
 	  
 	  </section>
