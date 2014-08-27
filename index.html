@@ -63,7 +63,7 @@ ODRL2.0 Core Model is abstract, i.e., serialization independent. The examples in
 
 <h4>Examples</h4>
 <p>A policy may represent the following statement: <i>"The asset 9898 can be read and written"</i>. </p>
-The following example is taken from the official <a href="http://www.w3.org/ns/odrl/2/#sec-example-1">ODRL example 1</a>
+<p>The following example is taken from the official <a href="http://www.w3.org/ns/odrl/2/#sec-example-1">ODRL example 1</a></p>
 <pre>
 http://example.com/policy:0099
         a                 odrl:Policy , odrl:Set ;
@@ -72,8 +72,8 @@ http://example.com/policy:0099
                             odrl:target  "http://example.com/asset:9898"
                           ] ;
 </pre>
-<p>Note we have created a resource, policy:01, of class odrl:Set, with a single permission: the permitted actions (read, write), and the resource (asset9898). 
-The absence of the assignee is usually interpreted as "anybody", the absence of the assigner might be interpreted as if it matches the policy publisher.</p>
+
+<p>In order to produce that code, the ODRLAPI can be used, by typing the excerpt shown below</p>
 
 This may have been defined in Java with the 
 <pre>
@@ -82,24 +82,29 @@ This may have been defined in Java with the
         permission.setTarget("http://example.com/asset:9898");
         permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/read"), new Action("http://www.w3.org/ns/odrl/2/write")));
         policy.addRule(permission);
-		
         System.out.println(ODRLRDF.getRDF(policy, Lang.TTL));
 </pre>
 
-<p>Note that the last line converts objects in the ODRL2.0 Simple API Model to the RDF (Turtle by default) serialization.</p>
+<p>The first line creates an object of type <a href="Note we have created a resource, policy:01, of class odrl:Set, with a single permission: the permitted actions (read, write), and the resource (asset9898). 
+">Policy</a>. An empty string creates anonymous objects.</p>
+<p>Note we have created a resource, policy:01, of class odrl:Set, with a single permission: the permitted <a href="http://vroddon.github.io/odrlapi/htmldoc/html/classodrlmodel_1_1_action.html">Actions</a> (read, write), and the resource, 
+an <a href="http://vroddon.github.io/odrlapi/htmldoc/html/classodrlmodel_1_1_asset.html">Asset</a> (asset9898). </p>
+
+<p>The last line converts objects in the ODRL2.0 Simple API Model to the RDF (Turtle by default) serialization. Indeed, RDF/XML, N-Triples etc. are also supported.</p>
 
 <p>The source code includes 7 full examples of working source code for you to start digging. Look into the examples folder.</p>
 
 <h4>Full documentation</h4>
 
-<center><big><b><a href="htmldoc/html/index.html">Full documentation here</a></b></big></center>
-
+<center>
+<span style="font-size:1.5em">
+<b><a href="htmldoc/html/annotated.html">Full documentation here</a></b></big></span></center>
 <h4>License</h4>
 
 This software is under a totally permisive MIT license. We are happy if you mention us, though.
 
 <center><a href="http://www.oeg-upm.net"><img src = "./images/oeg100.png"/></a></center>
-<span style="font-size:0.5em">
+<span style="font-size:0.6em">
 The MIT License (MIT)
 
 Copyright (c) 2014 Ontology Engineering Group (OEG-UPM)
