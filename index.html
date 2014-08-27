@@ -45,7 +45,7 @@
 <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
 <h3>Introduction</h3>
 <p>ODRL2.0 is a language to express policies: permissions, prohibitions, obligations.</p>
-<center><img src = "../odrlapi.jpg"/></center>
+<center><img src = "./images/odrlapi.jpg"/></center>
 <p>This API is able to manipulate expressions conformant to a subset of the <a href="http://www.w3.org/community/odrl/two/model/">
 Core Model specification</a> and <a href="http://www.w3.org/community/odrl/two/vocab/">Common Vocabulary</a>.</p>
 <p>ODRL2.0 can be serialized as XML, as JSON or as RDF based on the draft <a href="http://www.w3.org/ns/odrl/2/">ODRL2.0 Ontology</a>. The only serialization this Java API supports in this version is the RDF</p>
@@ -53,12 +53,13 @@ Core Model specification</a> and <a href="http://www.w3.org/community/odrl/two/v
 <h3>Fast intro to ODRL2.0 and ODRL2.0 Simple API</h3>
 
 ODRL2.0 Core Model is abstract, i.e., serialization independent. The examples in this document assume the RDF serialization. First, some common prefixes:
-<center>
+<center><small>
 <table>
 <tr><td>prefix</td><td>namespace</td></tr>
 <tr><td>odrl</td><td>http://www.w3.org/ns/odrl/2/</td></tr>
 <tr><td>dct</td><td>http://purl.org/dc/terms/</td></tr>
 </table>
+</small>
 </center>
 
 <h4>A first example</h4>
@@ -86,6 +87,7 @@ This may have been defined in Java with the
 
 </pre>
 Note that the last line converts objects in the ODRL2.0 Simple API Model to the RDF (Turtle by default) serialization.
+<center><img src = "./images/oeg100.png"/></center>
 
 	  
 	  </section>
