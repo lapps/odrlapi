@@ -65,7 +65,7 @@ class RDFUtils {
      * Loads the models.
      * - The ODRL model
      * - The CCREL model
-     * @param Whether the file is locally loaded or from the oficial URI
+     * @param local Whether the file is locally loaded or from the official URI
      */
     private static void initModel(boolean local) throws IOException {
         coreModel = ModelFactory.createOntologyModel();
@@ -463,17 +463,21 @@ class RDFUtils {
         return document;
     }
 
+	public static Model parseFromText(String txt) {
+		return parseFromText(txt, "RDF/XML");
+	}
     /**
      * Parses the ontology from a text
      * @param txt Text with an ontology
      */
-    public static Model parseFromText(String txt) {
+    public static Model parseFromText(String txt, String lang) {
         Model model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(txt.getBytes()); //StandardCharsets.UTF_8
         try {
-            model.read(is, null, "RDF/XML");
+            model.read(is, null, lang);
             return model;
         } catch (Exception e) {
+			   //TODO These exceptions should be logged.
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes()); //StandardCharsets.UTF_8

@@ -1,17 +1,19 @@
 package examples;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import odrlmodel.Action;
-import odrlmodel.ODRLRDF;
-import odrlmodel.Party;
-import odrlmodel.Permission;
-import odrlmodel.Policy;
-import odrlmodel.Prohibition;
+
+import com.github.jsonldjava.jena.JenaJSONLD;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import odrlmodel.*;
 import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
 
 /**
@@ -37,10 +39,28 @@ public class Example4 {
         permission.setAssignee(new Party("http://example.com/guest:0589"));
         policy.addRule(permission);
 
-        
+        JenaJSONLD.init();
         //We serialize the policy
-        String rdf=ODRLRDF.getRDF(policy,Lang.TTL);
-        System.out.println(rdf);
+//		 Resource r = ODRLRDF.getResourceFromPolicy(policy);
+//		 Model model = r.getModel();
+//		 model.write(System.out, "JSON-LD");
+//        String rdf=ODRLRDF.getRDF(policy,Lang.TTL);
+		 String json = ODRLRDF.getRDF(policy, Lang.JSONLD);
+		 System.out.println(json);
+
+		 Policy p = ODRLRDF.getPolicy(json, "JSON-LD");
+		 String rdf = ODRLRDF.getRDF(p, Lang.TTL);
+		 System.out.println(rdf);
+
+//		 Model model = RDFDataMgr.loadModel("/tmp/example4.jsonld");
+//		 model.write(System.out, "JSON-LD");
+
+
+//		 Model model = ModelFactory.createDefaultModel();
+//		 StringReader reader = new StringReader(json);
+//		 model.read(reader, "JSON-LD");
+//		 model.write(System.out, "TTL");
+//        System.out.println(rdf);
         
     }
     
