@@ -24,7 +24,9 @@ public class Constraint extends MetadataObject{
     protected String operator="";
     protected String rightOperand="";
     protected String value="";
-    
+    protected String dataType = null;
+	 protected String unit = null;
+
     /** 
      * Default constraint with a random URI
      */
@@ -78,5 +80,8 @@ public class Constraint extends MetadataObject{
     {
         value=_value;
     }
+
+	 public void setDataType(String dataType) { this.dataType = dataType; }
+	 public void setUnit(String unit) { this.unit = unit; }
     
 }
