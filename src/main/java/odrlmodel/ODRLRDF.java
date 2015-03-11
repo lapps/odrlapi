@@ -35,6 +35,7 @@ public class ODRLRDF {
         addPrefixesToModel(model);
         model.add(r.getModel());
         StringWriter sw = new StringWriter();
+
         RDFDataMgr.write(sw, model,lang);
         String s = sw.toString();
         return s;
@@ -73,13 +74,16 @@ public class ODRLRDF {
         }
         return politicas;
     }  
-    
+
+	public static Policy getPolicy(String rdf) {
+		return getPolicy(rdf, "RDF/XML");
+	}
     /**
      * Gets a policy from a 
      */
-    public static Policy getPolicy(String rdf)
+    public static Policy getPolicy(String rdf, String lang)
     {
-        Model model = RDFUtils.parseFromText(rdf);
+        Model model = RDFUtils.parseFromText(rdf, lang);
         List<Resource> ls = ODRLRDF.findPolicies(model);
         if (!ls.isEmpty())
         {
@@ -197,7 +201,7 @@ public class ODRLRDF {
      * Gets the JENA resource from a policy
      * @param policy Policy
      */
-    private static Resource getResourceFromPolicy(Policy policy)
+    public static Resource getResourceFromPolicy(Policy policy)
     {
         Model model = ModelFactory.createDefaultModel();
         addPrefixesToModel(model);
