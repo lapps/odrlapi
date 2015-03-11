@@ -18,9 +18,10 @@ import org.apache.jena.riot.RDFDataMgr;
 
 /**
  * This class shows a very simple example creating a simple ODRL expression
- * @see http://www.w3.org/ns/odrl/2/#sec-example-4
- * 
+ * @see <a href="http://www.w3.org/ns/odrl/2/#sec-example-4">sec-example-4</a>
+ *
  * @author Victor
+ * @author Keith Suderman
  */
 public class Example4 {
  
@@ -47,6 +48,13 @@ public class Example4 {
 //        String rdf=ODRLRDF.getRDF(policy,Lang.TTL);
 		 String json = ODRLRDF.getRDF(policy, Lang.JSONLD);
 		 System.out.println(json);
+
+		 System.out.println("\nN3");
+		 System.out.println(ODRLRDF.getRDF(policy, Lang.N3));
+		 System.out.println("\nNQUADS");
+		 System.out.println(ODRLRDF.getRDF(policy, Lang.NQUADS));
+		 System.out.println("\nNTRIPLES");
+		 System.out.println(ODRLRDF.getRDF(policy, Lang.NTRIPLES));
 
 		 Policy p = ODRLRDF.getPolicy(json, "JSON-LD");
 		 String rdf = ODRLRDF.getRDF(p, Lang.TTL);
