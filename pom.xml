@@ -6,7 +6,7 @@
 
     <groupId>org.lappsgrid.odrl</groupId>
     <artifactId>odrlapi</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <properties>
         <jena.version>2.11.1</jena.version>
